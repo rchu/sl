@@ -1,14 +1,29 @@
-/*========================================
- *    sl.h: SL version 5.02
- *	Copyright 1993,2002,2014
- *                Toyoda Masashi
- *		  (mtoyoda@acm.org)
- *	Last Modified: 2014/06/03
- *========================================
- */
+/* ====================================================================================== *
 
+    sl.c: SL
+    
+        Ronald Chu
+        based on TVG fork, 2019 Matthias Gatto
+        based on version 5.03, Copyright 1993,1998,2014-2015 Toyoda Masashi (mtoyoda@acm.org)
+
+ * ====================================================================================== */
+#define HELPTEXT  "\
+SL (Steam Locomotive) runs across your terminal when you type \"sl\" as you meant to type \"ls\". It's just a joke command, and not useful at all.\n\
+\n\
+Usage:\n\
+    sl <options>\n\
+Options:\n\
+    -a               Accident\n\
+    -F               Fly\n\
+    -d               Show logo\n\
+    -c               Show C51\n\
+    -G               Show TGV\n\
+    -t <time>\n\
+    --time <time>    Set animation time (miliseconds)\n\n"
+
+#define TGV 1
 #define TGVHEIGHT	8
-#define TGVLENGTH	114
+#define TGVLENGTH	249
 #define TGVPATTERNS	2
 
 #define TGVSTR0  "                             ______________   /          "
@@ -24,15 +39,16 @@
 
 #define TGVDEL   "                                                         "
 
-#define TGVVAG0  "  ___________                                            "
-#define TGVVAG1  "  |_====____|\\________________________________________   "
-#define TGVVAG2  "o|  ||||         ___                                  |  "
-#define TGVVAG3  "H|______________|___|_________________________________|  "
-#define TGVVAG4  "H|  |||| |[]|   |[]1|    []   [  ] [  ] [  ] [  ]     |  "
-#define TGVVAG5  "H|__||||_|__|___|___|_________________________________|  "
-#define TGVVAG6  "D|==============|===|=================================|  "
-#define TGVVAG7  " _/ 0==0  |____________________________________/    0=|  "
+#define TGVVAG0  "  ___________                                                                                                                                                                                   "
+#define TGVVAG1  "  |_====____|\\________________________________________   ____________________________________________________        __________                      _____                                      "
+#define TGVVAG2  "o|  ||||         ___                                  |o|               ___                                  |                           _____                              ___                 "
+#define TGVVAG3  "H|______________|___|_________________________________|H|______________|___|_________________________________|   __________                                                                     "
+#define TGVVAG4  "H|  |||| |[]|   |[]1|   []   [   ] [   ] [   ] [   ]  |H| [   ]   []   |[]2|   []   [   ] [   ] [   ] [   ]  |                                                                             ___  "
+#define TGVVAG5  "H|__||||_|__|___|___|_________________________________|H|______________|___|_________________________________|                                                 ____                             "
+#define TGVVAG6  "D|==============|===|=================================|D|==============|===|=================================|        __________               _____                                            "
+#define TGVVAG7  " _/ 0==0  |____________________________________/    0=| _/ 0==0  |____________________________________/    0=|                                                                                  "
 
+#define D51 2
 #define D51HEIGHT	10
 #define D51FUNNEL	 7
 #define D51LENGTH	83
@@ -85,6 +101,7 @@
 
 #define COALDEL "                              "
 
+#define LOGO 3
 #define LOGOHEIGHT    	 6
 #define LOGOFUNNEL  	 4
 #define LOGOLENGTH      84
@@ -129,6 +146,7 @@
 
 #define DELLN  "                     "
 
+#define C51 4
 #define C51HEIGHT 11
 #define C51FUNNEL 7
 #define C51LENGTH 87
